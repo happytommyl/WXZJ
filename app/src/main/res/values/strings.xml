@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">五行针灸</string>
+    <string name="name">姓名</string>
+    <string name="age">年龄</string>
+    <string name="sex">性别</string>
+    <string name="phone">电话</string>
+    <string name="summit">提交</string>
+    <string name="confirm">确认</string>
+    <string name="birthdate">出生日期</string>
+    <string name="email">email(选填)</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_info">info</string>
+    <string name="title_activity_main">main</string>
+
+
+    <string name="address">请输入地址</string>
+</resources>
