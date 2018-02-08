@@ -116,6 +116,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="@string/age"
+        android:focusable="false"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/new_sex"
         app:layout_constraintTop_toTopOf="@+id/new_sex" />

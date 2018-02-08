@@ -67,13 +67,7 @@ class NewInfoActivity : AppCompatActivity() {
             val newIntent = Intent()
             if(true//checkValid()
                      ) {
-                newIntent.setClass(this@NewInfoActivity, InfoActivity::class.java)
-                newIntent.putExtra("name", nameText.text.toString())
-                newIntent.putExtra("sex", sexText.selectedItem.toString())
-                newIntent.putExtra("age", ageText.text.toString())
-                newIntent.putExtra("email", emailText.text.toString())
-                newIntent.putExtra("phone", phoneText.text.toString())
-                newIntent.putExtra("addr", addrText.text.toString())
+                putExtras(newIntent)
                 startActivityForResult(newIntent, intentCode)
             }
         }
@@ -81,30 +75,40 @@ class NewInfoActivity : AppCompatActivity() {
 
 
 
+
+    }
+
+    private fun putExtras(intent: Intent){
+        intent.setClass(this, InfoActivity::class.java)
+        intent.putExtra("name", nameText.text.toString())
+        intent.putExtra("sex", sexText.selectedItem.toString())
+        intent.putExtra("age", ageText.text.toString())
+        intent.putExtra("email", emailText.text.toString())
+        intent.putExtra("phone", phoneText.text.toString())
+        intent.putExtra("addr", addrText.text.toString())
     }
 
     fun getAge(birthDay : Date) : Int{
         val cal = Calendar.getInstance()
         if (cal.before(birthDay)) {
-//                    throw new IllegalArgumentException(
-//                            "The birthDay is before Now.It's unbelievable!");
+            //TODO:Check Birthday Valid
         }
-        val yearNow = cal.get(Calendar.YEAR);
-        val monthNow = cal.get(Calendar.MONTH);
-        val dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH);
-        cal.time = (birthDay);
+        val yearNow = cal.get(Calendar.YEAR)
+        val monthNow = cal.get(Calendar.MONTH)
+        val dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH)
+        cal.time = (birthDay)
 
-        val yearBirth = cal.get(Calendar.YEAR);
-        val monthBirth = cal.get(Calendar.MONTH);
-        val dayOfMonthBirth = cal.get(Calendar.DAY_OF_MONTH);
+        val yearBirth = cal.get(Calendar.YEAR)
+        val monthBirth = cal.get(Calendar.MONTH)
+        val dayOfMonthBirth = cal.get(Calendar.DAY_OF_MONTH)
 
-        var age = yearNow - yearBirth;
+        var age = yearNow - yearBirth
 
         if (monthNow <= monthBirth) {
             if (monthNow == monthBirth) {
-                if (dayOfMonthNow < dayOfMonthBirth) age--;
+                if (dayOfMonthNow < dayOfMonthBirth) age--
             }else{
-                age--;
+                age--
             }
         }
         return age;
@@ -120,11 +124,6 @@ class NewInfoActivity : AppCompatActivity() {
             return false
         }
 
-        //var year = ageText.year
-//        if (ageText.get){
-//            ageText.error = "请输入年龄"
-//            return false
-//        }
         if (phoneText.text.toString() == "" || (phoneText.text.toString().length != 11 && phoneText.text.toString().length != 12)){
             phoneText.error = "请输入正确的电话"
             return false
@@ -140,16 +139,8 @@ class NewInfoActivity : AppCompatActivity() {
     }
 
 
-     private val emailAddressPattern : Pattern = Pattern.compile(
-             "[a-zA-Z0-9+._%-+]{1,256}" +
-             "@" +
-             "[a-zA-Z0-9][a-zA-Z0-9-]{0,64}" +
-             "." +
-             "[a-zA-Z0-9][a-zA-Z0-9-]{0,25}"
-     )
-
-    fun checkEmail(email:String):Boolean {
-        return emailAddressPattern.matcher(email).matches()
+    fun checkEmail(email : String) : Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     companion object {

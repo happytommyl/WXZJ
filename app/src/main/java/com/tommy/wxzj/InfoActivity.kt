@@ -21,6 +21,8 @@ import android.widget.AdapterView.OnItemSelectedListener
 
 
 class InfoActivity : AppCompatActivity() {
+
+    private var intentCode = 1
     private lateinit var nameText : TextView
     private lateinit var sexText :TextView
     private lateinit var ageText :TextView
@@ -28,7 +30,8 @@ class InfoActivity : AppCompatActivity() {
     private lateinit var phoneText :TextView
     private lateinit var addrText :TextView
     private lateinit var confirmButton: Button
-    lateinit var timeSpinner: Spinner
+    private lateinit var timeSpinner: Spinner
+    private lateinit var reportButton: Button
     private lateinit var data: MutableList<Int>
     private var maxTimes = 10
 
@@ -44,33 +47,48 @@ class InfoActivity : AppCompatActivity() {
         emailText = findViewById(R.id.view_email)
         phoneText = findViewById(R.id.view_phone)
         addrText = findViewById(R.id.view_addr)
+        confirmButton = findViewById(R.id.confirm)
+        timeSpinner = findViewById(R.id.time)
+        reportButton = findViewById(R.id.report)
         nameText.text = intent.getStringExtra("name")
         sexText.text = intent.getStringExtra("sex")
         ageText.text = intent.getStringExtra("age")
         emailText.text = intent.getStringExtra("email")
         phoneText.text = intent.getStringExtra("phone")
         addrText.text = intent.getStringExtra("addr")
-        confirmButton = findViewById(R.id.confirm)
-        timeSpinner = findViewById(R.id.time)
+
+
         var timeSelected = 0
         data = mutableListOf()
         for (i in 0 until maxTimes){
             data.add(i,i+1)
         }
+
+
+
         val adapter = ArrayAdapter<Int>(this, android.R.layout.simple_spinner_item, data)
-        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice )
+        adapter.setDropDownViewResource( android.R.layout.simple_list_item_single_choice )
         timeSpinner.adapter = adapter
+
+        @Suppress("UsePropertyAccessSyntax")
         timeSpinner.setOnItemSelectedListener(object : OnItemSelectedListener {
             // parent： 为控件Spinner view：显示文字的TextView position：下拉选项的位置从0开始
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val adapter = parent.adapter as ArrayAdapter<Int>
-                val timeSelected : Int = adapter.getItem(position)
+                timeSelected  = adapter.getItem(position)
             }
 
             //没有选中时的处理
             override fun onNothingSelected(parent: AdapterView<*>) {}
         })
 
+
+        reportButton.setOnClickListener {
+            val newIntent = Intent()
+            newIntent.setClass(this, ReportActivity::class.java)
+            newIntent.putExtra("timeSelected", timeSelected)
+            startActivityForResult(newIntent, intentCode)
+        }
 
 
         confirmButton.setOnClickListener{
@@ -83,7 +101,6 @@ class InfoActivity : AppCompatActivity() {
 
 
     }
-
 
     companion object {
 
