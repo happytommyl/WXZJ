@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_new_info.*
 import java.util.*
 import java.util.regex.Pattern
 import kotlin.text.Regex
@@ -16,14 +17,7 @@ import kotlin.text.Regex
 
 class NewInfoActivity : AppCompatActivity() {
 
-    private lateinit var button : Button
     private val intentCode = 1
-    private lateinit var nameText :TextView
-    private lateinit var sexText :Spinner
-    private lateinit var ageText : TextView
-    private lateinit var emailText :TextView
-    private lateinit var phoneText :TextView
-    private lateinit var addrText :TextView
     //TODO:阴历阳历选项，出生时间，出生地（省，市*），现居地（省，市*），五行
 
 
@@ -31,18 +25,11 @@ class NewInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_info)
 
-        var cal = Calendar.getInstance()
+        val cal = Calendar.getInstance()
 
 
 
 
-        button = findViewById(R.id.summit)
-        nameText = findViewById(R.id.new_name)
-        sexText = findViewById(R.id.new_sex)
-        ageText = findViewById(R.id.new_age)
-        emailText = findViewById(R.id.new_email)
-        phoneText = findViewById(R.id.new_phone)
-        addrText = findViewById(R.id.new_addr)
 
         val dateSetListener = DatePickerDialog.OnDateSetListener {view, year, monthOfYear, dayOfMonth ->
             cal.set(Calendar.YEAR, year)
@@ -53,23 +40,27 @@ class NewInfoActivity : AppCompatActivity() {
             val sdf = SimpleDateFormat(myFormat, Locale.CHINA)
             val birthDay = sdf.format(cal.time)
             //val age = getAge(sdf.parse(birthDay))
-            ageText.text = birthDay
+            new_age.setText(birthDay)
         }
 
-        ageText.setOnClickListener {
+        new_age.setOnClickListener {
             DatePickerDialog(this, dateSetListener,
                     cal.get(Calendar.YEAR),
                     cal.get(Calendar.MONTH),
                     cal.get(Calendar.DAY_OF_MONTH)).show()
         }
 
-        button.setOnClickListener {
+        summit.setOnClickListener {
             val newIntent = Intent()
             if(true//checkValid()
                      ) {
                 putExtras(newIntent)
                 startActivityForResult(newIntent, intentCode)
             }
+        }
+
+        logout.setOnClickListener {
+            finish()
         }
 
 
@@ -80,12 +71,12 @@ class NewInfoActivity : AppCompatActivity() {
 
     private fun putExtras(intent: Intent){
         intent.setClass(this, InfoActivity::class.java)
-        intent.putExtra("name", nameText.text.toString())
-        intent.putExtra("sex", sexText.selectedItem.toString())
-        intent.putExtra("age", ageText.text.toString())
-        intent.putExtra("email", emailText.text.toString())
-        intent.putExtra("phone", phoneText.text.toString())
-        intent.putExtra("addr", addrText.text.toString())
+        intent.putExtra("name", new_name.text.toString())
+        intent.putExtra("sex", new_sex.selectedItem.toString())
+        intent.putExtra("age", new_age.text.toString())
+        intent.putExtra("email", new_email.text.toString())
+        intent.putExtra("phone", new_phone.text.toString())
+        intent.putExtra("addr", new_addr.text.toString())
     }
 
     fun getAge(birthDay : Date) : Int{
@@ -119,18 +110,22 @@ class NewInfoActivity : AppCompatActivity() {
 
 
     private fun checkValid() :Boolean{
-        if (nameText.text.length < 2) {
-            nameText.error = "请输入姓名"
+        new_name.error = null
+        new_phone.error = null
+        new_email.error = null
+
+        if (new_name.text.length < 2) {
+            new_name.error = "请输入姓名"
             return false
         }
 
-        if (phoneText.text.toString() == "" || (phoneText.text.toString().length != 11 && phoneText.text.toString().length != 12)){
-            phoneText.error = "请输入正确的电话"
+        if (new_phone.text.toString() == "" || (new_phone.text.toString().length != 11 && new_phone.text.toString().length != 12)){
+            new_phone.error = "请输入正确的电话"
             return false
         }
 
-        if(checkEmail(emailText.text.toString()).not()){
-            emailText.error = "请输入正确的邮箱"
+        if(isEmailValid(new_email.text.toString()).not()){
+            new_email.error = "请输入正确的邮箱"
             return false
         }
 
@@ -139,7 +134,7 @@ class NewInfoActivity : AppCompatActivity() {
     }
 
 
-    fun checkEmail(email : String) : Boolean {
+    private fun isEmailValid(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 

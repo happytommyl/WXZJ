@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_email" />
 
     <Button
-        android:id="@+id/confirm"
+        android:id="@+id/button_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="136dp"
@@ -94,16 +94,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/report"
+        android:id="@+id/button_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="查看报告"
+        android:text="@string/report"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/confirm" />
+        app:layout_constraintTop_toTopOf="@+id/button_confirm" />
 
     <Spinner
-        android:id="@+id/time"
+        android:id="@+id/view_time"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"

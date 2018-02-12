@@ -20,6 +20,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import java.sql.*
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
@@ -37,6 +38,8 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private var mAuthTask: UserLoginTask? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -142,14 +145,13 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
 //            mAuthTask = UserLoginTask(emailStr, passwordStr)
 //            mAuthTask!!.execute(null as Void?)
             val newIntent = Intent()
-            newIntent.setClass(this@LoginActivity, NewInfoActivity::class.java)
+            newIntent.setClass(this, NewInfoActivity::class.java)
             startActivity(newIntent)
         }
     }
 
     private fun isEmailValid(email: String): Boolean {
-        //TODO: Replace this with your own logic
-        return email.contains("@")
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     private fun isPasswordValid(password: String): Boolean {
@@ -296,6 +298,6 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
          * A dummy authentication store containing known user names and passwords.
          * TODO: remove after connecting to a real authentication system.
          */
-        private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
+        private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world", "tommy@123.com:123456")
     }
 }

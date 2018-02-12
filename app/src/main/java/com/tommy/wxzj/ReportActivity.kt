@@ -5,22 +5,19 @@ import android.os.Bundle
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_report.*
 
 
 class ReportActivity : Activity() {
-
-    private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
 
-        textView = findViewById(R.id.textViewReport)
-
         val intent = this.intent
         val times = intent.getIntExtra("timeSelected",0)
 
-        textView.text = times.toString()
+        textViewReport.text = times.toString()
     }
 
     companion object {
