@@ -6,35 +6,162 @@
     android:layout_height="match_parent"
     tools:context="com.tommy.wxzj.ReportActivity">
 
-    <!--<TextView-->
-        <!--android:id="@+id/report_name_T"-->
-        <!--android:layout_width="45"-->
-        <!--android:layout_height="45"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="32dp"-->
-        <!--android:text="姓名"-->
-        <!--android:textAlignment="center"-->
-        <!--android:textSize="22dp"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--<EditText-->
-        <!--android:id="@+id/report_name_E"-->
-        <!--android:layout_width="75dp"-->
-        <!--android:layout_height="45"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="textPersonName"-->
-        <!--android:text="Name"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/report_name_T"-->
-        <!--tools:layout_editor_absoluteY="32dp" />-->
-    <TextView
-        android:id="@+id/textViewReport"
-        android:layout_width="165dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
+    <EditText
+        android:id="@+id/report_time"
+        android:layout_width="110dp"
+        android:layout_height="@dimen/text_field_height"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="次数"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/report_shangjiao"
+        android:layout_width="111dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="上焦"
+        app:layout_constraintEnd_toStartOf="@+id/report_zhongjiao"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/report_time" />
+
+    <EditText
+        android:id="@+id/report_zhongjiao"
+        android:layout_width="111dp"
+        android:layout_height="@dimen/text_field_height"
+        android:ems="10"
+        android:hint="中焦"
+        app:layout_constraintTop_toTopOf="@+id/report_shangjiao"
+        tools:layout_editor_absoluteX="137dp" />
+
+    <EditText
+        android:id="@+id/report_xiajiao"
+        android:layout_width="111dp"
+        android:layout_height="@dimen/text_field_height"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="下焦"
+        app:layout_constraintStart_toEndOf="@+id/report_zhongjiao"
+        app:layout_constraintTop_toTopOf="@+id/report_zhongjiao" />
+
+    <EditText
+        android:id="@+id/report_name"
+        android:layout_width="111dp"
+        android:layout_height="@dimen/text_field_height"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/report_time"
+        app:layout_constraintTop_toTopOf="@+id/report_time" />
+
+    <EditText
+        android:id="@+id/report_sex"
+        android:layout_width="111dp"
+        android:layout_height="@dimen/text_field_height"
+        android:layout_marginStart="12dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/sex"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="@+id/report_name"
+        app:layout_constraintTop_toTopOf="@+id/report_name" />
+
+    <EditText
+        android:id="@+id/report_qianmaixiangzuocun"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="前脉象左寸"
+        android:inputType="        "
+        app:layout_constraintStart_toStartOf="@+id/report_shangjiao"
+        app:layout_constraintTop_toBottomOf="@+id/report_shangjiao" />
+
+    <EditText
+        android:id="@+id/report_qianzuoguan"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="前脉象左关"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianmaixiangzuocun"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianmaixiangzuocun" />
+
+    <EditText
+        android:id="@+id/report_qianzuochi"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="前脉象左尺"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianmaixiangzuocun"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianzuoguan" />
+
+    <EditText
+        android:id="@+id/report_qianyoucun"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="前脉象右寸"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianzuochi"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianzuochi" />
+
+    <EditText
+        android:id="@+id/report_qianyouguan"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="前脉象右关"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianyoucun"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianyoucun" />
+
+    <EditText
+        android:id="@+id/report_qianyouchi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="前脉象右尺"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianyouguan"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianyouguan" />
+
+    <EditText
+        android:id="@+id/report_zhouzuocun"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="后脉象左寸"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_qianyouchi"
+        app:layout_constraintTop_toBottomOf="@+id/report_qianyouchi" />
+
+    <Button
+        android:id="@+id/button_nextpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="下一页"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

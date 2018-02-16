@@ -11,8 +11,8 @@
         style="@android:style/Widget.DeviceDefault.EditText"
         android:layout_width="100dp"
         android:layout_height="@dimen/text_field_height"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="152dp"
         android:ems="10"
         android:enabled="false"
         android:hint="@string/name"
@@ -28,8 +28,8 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:enabled="false"
-        android:hint="@string/sex"
         android:inputType="text"
+        android:hint="@string/sex"
         app:layout_constraintStart_toEndOf="@+id/view_name"
         app:layout_constraintTop_toTopOf="@+id/view_name" />
 
@@ -38,18 +38,19 @@
         android:id="@+id/view_age"
         android:layout_width="111dp"
         android:layout_height="@dimen/text_field_height"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:ems="10"
         android:enabled="false"
-        android:hint="@string/age"
+        android:hint="@string/birthdate"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/view_sex"
         app:layout_constraintTop_toTopOf="@+id/view_sex" />
 
     <EditText
         android:id="@+id/view_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:enabled="false"
@@ -60,21 +61,20 @@
 
     <EditText
         android:id="@+id/view_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:enabled="false"
         android:hint="@string/phone"
         android:inputType="phone"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view_name"
         app:layout_constraintTop_toBottomOf="@+id/view_sex" />
 
     <EditText
         android:id="@+id/view_addr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:enabled="false"
@@ -85,30 +85,31 @@
 
     <Button
         android:id="@+id/button_confirm"
-        android:layout_width="wrap_content"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="56dp"
         android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_report"
-        android:layout_width="wrap_content"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="56dp"
         android:text="@string/report"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_confirm" />
 
+
+
     <Spinner
         android:id="@+id/view_time"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_addr" />
-
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_age" />
 </android.support.constraint.ConstraintLayout>

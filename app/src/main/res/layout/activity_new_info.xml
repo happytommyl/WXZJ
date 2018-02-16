@@ -4,128 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tommy.wxzj.NewInfoActivity"
-    tools:layout_editor_absoluteY="81dp">
+    tools:context="com.tommy.wxzj.NewInfoActivity">
 
 
-    <!--<EditText-->
-        <!--android:id="@+id/new_name"-->
-        <!--android:layout_width="111dp"-->
-        <!--android:layout_height="@dimen/text_field_height"-->
-        <!--android:ems="10"-->
-        <!--android:hint="@string/name"-->
-        <!--android:inputType="textPersonName"-->
-        <!--tools:layout_editor_absoluteX="16dp"-->
-        <!--tools:layout_editor_absoluteY="32dp" />-->
-
-
-    <!--<Spinner-->
-        <!--android:id="@id/new_sex"-->
-        <!--android:layout_width="111dp"-->
-        <!--android:layout_height="@dimen/text_field_height"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:ems="10"-->
-        <!--android:entries="@array/sex"-->
-        <!--android:hint="@string/sex"-->
-        <!--android:inputType="text"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/new_name"-->
-        <!--tools:layout_editor_absoluteY="32dp" />-->
-
-
-    <!--<EditText-->
-        <!--android:id="@+id/new_age"-->
-        <!--android:layout_width="111dp"-->
-        <!--android:layout_height="45dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:ems="10"-->
-        <!--android:focusable="false"-->
-        <!--android:focusableInTouchMode="false"-->
-        <!--android:hint="@string/birthdate"-->
-        <!--android:inputType="date"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/new_sex"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/new_sex" />-->
-
-    <!--<EditText-->
-        <!--android:id="@+id/new_email"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:hint="@string/prompt_email"-->
-        <!--android:inputType="textEmailAddress"-->
-        <!--tools:layout_editor_absoluteX="16dp"-->
-        <!--tools:layout_editor_absoluteY="99dp" />-->
-
-    <!--<EditText-->
-        <!--android:id="@+id/new_phone"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:hint="@string/phone"-->
-        <!--android:inputType="phone"-->
-        <!--tools:layout_editor_absoluteX="16dp"-->
-        <!--tools:layout_editor_absoluteY="159dp" />-->
-
-    <!--<EditText-->
-        <!--android:id="@+id/new_addr"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:hint="@string/address"-->
-        <!--android:inputType="textPostalAddress"-->
-        <!--tools:layout_editor_absoluteX="16dp"-->
-        <!--tools:layout_editor_absoluteY="218dp" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/summit"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/summit"-->
-        <!--tools:layout_editor_absoluteX="16dp"-->
-        <!--tools:layout_editor_absoluteY="327dp" />-->
     <EditText
         android:id="@+id/new_name"
-        style="@android:style/Widget.DeviceDefault.EditText"
-        android:layout_width="100dp"
+        android:layout_width="140dp"
         android:layout_height="@dimen/text_field_height"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/name"
-        android:inputType="none|textPersonName"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <Spinner
-        android:id="@id/new_sex"
-        android:layout_width="111dp"
-        android:layout_height="@dimen/text_field_height"
-        android:layout_marginStart="8dp"
+        android:id="@+id/new_sex"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:entries="@array/sex"
         android:hint="@string/sex"
         android:inputType="text"
-        app:layout_constraintStart_toEndOf="@+id/new_name"
-        app:layout_constraintTop_toTopOf="@+id/new_name" />
+        app:layout_constraintStart_toStartOf="@+id/new_name"
+        app:layout_constraintTop_toBottomOf="@+id/new_name" />
 
 
     <EditText
-        android:id="@+id/new_age"
-        android:layout_width="95dp"
-        android:layout_height="@dimen/text_field_height"
-        android:layout_marginStart="8dp"
+        android:id="@+id/new_birthday"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="@string/age"
         android:focusable="false"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/new_sex"
-        app:layout_constraintTop_toTopOf="@+id/new_sex" />
+        android:focusableInTouchMode="false"
+        android:hint="出生日期"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@+id/new_sex"
+        app:layout_constraintTop_toBottomOf="@+id/new_sex" />
 
     <EditText
         android:id="@+id/new_email"
-        android:layout_width="wrap_content"
+        android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
@@ -134,23 +59,22 @@
 
     <EditText
         android:id="@+id/new_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="312dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_sex" />
+        app:layout_constraintStart_toStartOf="@+id/new_birthday"
+        app:layout_constraintTop_toBottomOf="@+id/new_birthday" />
 
     <EditText
-        android:id="@+id/new_addr"
-        android:layout_width="wrap_content"
+        android:id="@+id/new_birthcity"
+        android:layout_width="312dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="@string/address"
+        android:hint="出生地"
         android:inputType="textPostalAddress"
         app:layout_constraintStart_toStartOf="@+id/new_email"
         app:layout_constraintTop_toBottomOf="@+id/new_email" />
@@ -159,20 +83,65 @@
         android:id="@+id/summit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
         android:text="@string/summit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_add" />
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
+    <CheckBox
+        android:id="@+id/new_yinli"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="阴历"
+        app:layout_constraintBottom_toTopOf="@+id/new_phone"
+        app:layout_constraintStart_toEndOf="@+id/new_birthday" />
+
+    <CheckBox
+        android:id="@+id/new_yangli"
+        android:layout_width="52dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:text="阳历"
+        app:layout_constraintBottom_toTopOf="@+id/new_phone"
+        app:layout_constraintStart_toEndOf="@+id/new_yinli"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/new_wuxing"
+        android:layout_width="84dp"
+        android:layout_height="48dp"
+        android:entries="@array/wuxing"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/new_phone"
+        app:layout_constraintStart_toEndOf="@+id/new_yangli" />
+
+    <EditText
+        android:id="@+id/new_add"
+        android:layout_width="313dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/summit" />
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="现住地"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/new_birthcity"
+        app:layout_constraintTop_toBottomOf="@+id/new_birthcity" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="136dp"
+        android:layout_height="138dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/new_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
 
 </android.support.constraint.ConstraintLayout>

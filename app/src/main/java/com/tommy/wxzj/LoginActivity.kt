@@ -1,14 +1,15 @@
 package com.tommy.wxzj
 
+import android.Manifest.permission.READ_CONTACTS
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.TargetApi
-import android.content.pm.PackageManager
-
 import android.app.Activity
 import android.app.LoaderManager.LoaderCallbacks
 import android.content.CursorLoader
+import android.content.Intent
 import android.content.Loader
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
 import android.os.AsyncTask
@@ -20,13 +21,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import java.sql.*
-
-import java.util.ArrayList
-import android.Manifest.permission.READ_CONTACTS
-
 import kotlinx.android.synthetic.main.activity_login.*
-import android.content.Intent
+import java.util.*
 
 
 
@@ -38,6 +34,7 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private var mAuthTask: UserLoginTask? = null
+    private var requestcode = 0
 
 
 
@@ -46,6 +43,8 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
         setContentView(R.layout.activity_login)
         // Set up the login form.
         populateAutoComplete()
+        requestcode = 0
+
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
                 attemptLogin()
@@ -145,8 +144,8 @@ class LoginActivity : Activity(), LoaderCallbacks<Cursor> {
 //            mAuthTask = UserLoginTask(emailStr, passwordStr)
 //            mAuthTask!!.execute(null as Void?)
             val newIntent = Intent()
-            newIntent.setClass(this, NewInfoActivity::class.java)
-            startActivity(newIntent)
+            newIntent.setClass(this, MainActivity::class.java)
+            startActivityForResult(newIntent, requestcode)
         }
     }
 
