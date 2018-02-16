@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/report_houzuoguan"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="后脉象左关"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/report_houzuochi"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="后脉象左尺"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_houzuoguan"
+        app:layout_constraintTop_toBottomOf="@+id/report_houzuoguan" />
+
+    <EditText
+        android:id="@+id/report_houyoucun"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="后脉象右寸"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_houzuochi"
+        app:layout_constraintTop_toBottomOf="@+id/report_houzuochi" />
+
+    <EditText
+        android:id="@+id/report_houyouguan"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="后脉象右关"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_houyoucun"
+        app:layout_constraintTop_toBottomOf="@+id/report_houyoucun" />
+
+    <EditText
+        android:id="@+id/report_houyouchi"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="后脉象右尺"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_houyouguan"
+        app:layout_constraintTop_toBottomOf="@+id/report_houyouguan" />
+
+    <EditText
+        android:id="@+id/report_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="治疗后变化"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_houyouchi"
+        app:layout_constraintTop_toBottomOf="@+id/report_houyouchi" />
+
+    <EditText
+        android:id="@+id/report_remark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="备注"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/report_change"
+        app:layout_constraintTop_toBottomOf="@+id/report_change" />
+
+    <Button
+        android:id="@+id/button_prepage"
+        android:layout_width="97dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="上一页"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

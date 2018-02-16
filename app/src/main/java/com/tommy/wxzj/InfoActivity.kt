@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter
 import com.tsy.sdk.myokhttp.MyOkHttp
 import com.tsy.sdk.myokhttp.response.JsonResponseHandler
 import kotlinx.android.synthetic.main.activity_info.*
-import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -41,7 +40,7 @@ class InfoActivity : AppCompatActivity() {
 
 
             val params : HashMap<String,String> = HashMap()
-            params.put("P_name", intent.getStringExtra("name"))
+            params.put("Patient_ID", intent.getStringExtra("ID"))
 
 
             val mMyOkhttp = MyOkHttp()
@@ -50,8 +49,8 @@ class InfoActivity : AppCompatActivity() {
                     .params(params)
                     .tag(this)
                     .enqueue(object : JsonResponseHandler() {
-                        override fun onSuccess(statusCode: Int, response: JSONArray) {
-                            Patientinfo = response[0] as JSONObject
+                        override fun onSuccess(statusCode: Int, response: JSONObject) {
+                            Patientinfo = response
                             view_name.setText(Patientinfo["P_name"].toString())
                             view_sex.setText(Patientinfo["P_sex"].toString())
                             view_age.setText(Patientinfo["P_birthday"].toString())

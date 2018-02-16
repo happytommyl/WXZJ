@@ -82,6 +82,7 @@ class NewInfoActivity : AppCompatActivity() {
                         .enqueue(object : JsonResponseHandler() {
                             override fun onSuccess(statusCode: Int, response: JSONObject) {
                                 putExtras(newIntent)
+                                intent.putExtra("ID", response["Patient_ID"].toString())
                                 startActivityForResult(newIntent, intentCode)
                             }
 

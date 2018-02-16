@@ -16,12 +16,13 @@
         android:layout_marginTop="56dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/name"
+        android:text=""
+        android:hint="@string/name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
@@ -31,29 +32,29 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_selectPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:layout_marginStart="44dp"
-        android:text="保存"
+        android:text="选择"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/button_newInfo" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_newInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:layout_marginStart="32dp"
         android:text="新建"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/button_search" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/myRecyclerView"
         android:layout_width="368dp"
-        android:layout_height="244dp"
+        android:layout_height="368dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
