@@ -11,7 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:descendantFocusability="blocksDescendants"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@color/colorPrimary"
         android:id="@+id/cv"
+        android:elevation="5dp"
+        android:clickable="true"
+        android:focusable="true"
         >
       <!--  card_view:cardElevation="2dp"
         card_view:cardMaxElevation="4dp"-->
@@ -44,6 +49,7 @@
                     android:id="@+id/patientname"
                     android:textColor="#000"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                 />
                 <TextView
                     android:layout_width="wrap_content"
@@ -51,6 +57,7 @@
                     android:id="@+id/patientsex"
                     android:textColor="#000"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                 />
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,6 +65,7 @@
                     android:id="@+id/patientbithday"
                     android:textColor="#000"
                     android:textSize="20sp"
+                    android:layout_marginStart="5dp"
                     />
             </LinearLayout>
         </RelativeLayout>

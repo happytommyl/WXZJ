@@ -52,7 +52,7 @@ class InfoActivity : AppCompatActivity() {
                         override fun onSuccess(statusCode: Int, response: JSONObject) {
                             Patientinfo = response
                             view_name.setText(Patientinfo["P_name"].toString())
-                            view_sex.setText(Patientinfo["P_sex"].toString())
+                            view_sex.setText(if (Patientinfo["P_sex"].toString() == "0") "女" else "男")
                             view_age.setText(Patientinfo["P_birthday"].toString())
 //                            view_email.setText(Patientinfo["P_email"].toString())
                             view_phone.setText(Patientinfo["P_tel"].toString())
@@ -99,7 +99,7 @@ class InfoActivity : AppCompatActivity() {
 
             button_report.setOnClickListener {
                 val newIntent = Intent()
-                newIntent.setClass(this, ReportActivity::class.java)
+                newIntent.setClass(this, ReportActivity::class.java )
                 newIntent.putExtra("timeSelected", timeSelected)
                 startActivityForResult(newIntent, intentCode)
             }

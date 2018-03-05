@@ -8,12 +8,16 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.Toast
 import com.example.vish.offlinedictionarydemo.CustomAdapter
 import com.tsy.sdk.myokhttp.MyOkHttp
 import com.tsy.sdk.myokhttp.response.JsonResponseHandler
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
+
+
 
 class MainActivity : Activity() {
 
@@ -86,7 +90,7 @@ class MainActivity : Activity() {
                                 var patient = Patientinfo[i] as JSONObject
                                 var patientid = patient["Patient_ID"] as String
                                 var patientname = patient["P_name"] as String
-                                var patientsex = patient["P_sex"] as String
+                                var patientsex = if(patient["P_sex"] == "0") "女" else "男"
                                 var patientbirthday = patient["P_birthday"] as String
                                 idlist.add(patientid)
                                 namelist.add(patientname)
@@ -99,8 +103,14 @@ class MainActivity : Activity() {
                             for(i in namelist.indices){
                                 data.add(Patient(idlist[i],namelist[i], sexlist[i],birthdaylist[i]))
                             }
-                            adapter = CustomAdapter(data)
+                            adapter = CustomAdapter(data)!!
+                            adapter.setOnItemClick(object :  OnItemClick {
+                                override fun onItemClick(view: View, position: Int) {
+                                    Toast.makeText(this@MainActivity, "点击了：" + data[position], Toast.LENGTH_LONG).show()
+                                }
+                            })
                             mRecyclerView!!.adapter = adapter
+
                         }
 
                         override fun onFailure(statusCode: Int, error_msg: String?) {
@@ -121,7 +131,7 @@ class MainActivity : Activity() {
 
 
     companion object {
-        private var adapter: RecyclerView.Adapter<*>? = null
+        private lateinit var adapter: CustomAdapter
         private var recyclerView: RecyclerView? = null
         lateinit var data: ArrayList<Patient>
     }

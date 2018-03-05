@@ -69,7 +69,7 @@ class NewInfoActivity : AppCompatActivity() {
                 params["P_birthcity"] = new_birthcity.text.toString()
                 params["P_wuxing"] = new_wuxing.selectedItem.toString()
 
-                new_email.setText(params.toString())
+                //new_email.setText(params.toString())
 
                 var jsonObject = JsonObject()
 
